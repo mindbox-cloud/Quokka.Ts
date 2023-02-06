@@ -1,7 +1,7 @@
 # Quokka.Ts
 
 
-![master](https://github.com/mindbox-moscow/Quokka.Ts/workflows/master/badge.svg) ![npm](https://img.shields.io/npm/v/@mindbox/quokka)
+![master](https://github.com/mindbox-cloud/Quokka.Ts/workflows/master/badge.svg) ![npm](https://img.shields.io/npm/v/@mindbox/quokka)
 
 Mindbox.Quokka Typescript implementation.
 

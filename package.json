@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mindbox-moscow/Quokka.Ts.git"
+    "url": "git+https://github.com/mindbox-cloud/Quokka.Ts.git"
   },
   "keywords": [
     "Quokka",
@@ -19,9 +19,9 @@
   "author": "Mindbox",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/mindbox-moscow/Quokka.Ts/issues"
+    "url": "https://github.com/mindbox-cloud/Quokka.Ts/issues"
   },
-  "homepage": "https://github.com/mindbox-moscow/Quokka.Ts#readme",
+  "homepage": "https://github.com/mindbox-cloud/Quokka.Ts#readme",
   "files": [
     "index.d.ts",
     "dist"

@@ -32,6 +32,6 @@ You'll have to set up the npm authorization first.
 ## Changing Quokka grammar 
 
 This JS port uses the same ANTLR grammar that is used in the C# implementation. 
-You should always be working with the grammar files from the [main Quokka repository](https://github.com/mindbox-moscow/Quokka) (currently private).
+You should always be working with the grammar files from the [main Quokka repository](https://github.com/mindbox-cloud/Quokka) (currently private).
 
 Use `antlr4ts-cli` tool to regenerate ANTLR4 lexer, visitor etc.
