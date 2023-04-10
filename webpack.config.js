@@ -1,4 +1,5 @@
 var path = require("path");
+const { ProvidePlugin } = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
@@ -40,6 +41,13 @@ module.exports = {
       },
     ],
   },
+
+  plugins: [
+    // fix "process is not defined" error:
+    new ProvidePlugin({
+      process: "process/browser",
+    }),
+  ],
 
   performance: {
     maxEntrypointSize: 500000,
