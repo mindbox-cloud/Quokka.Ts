@@ -22,6 +22,10 @@ export class ArithmeticExpressionVisitor
         return null;
     }
 
+    public visitParenthesizedArithmeticExpression(ctx: Parser.ParenthesizedArithmeticExpressionContext): ArithmeticExpression {
+        return ctx.arithmeticExpression().accept(this);
+    }
+
     public visitArithmeticExpression(ctx: Parser.ArithmeticExpressionContext): ArithmeticExpression {
         if (!(ctx.minusOperand()?.length > 0) && !(ctx.plusOperand()?.length > 0)) {
             return ctx.multiplicationExpression().accept(this);
@@ -40,6 +44,8 @@ export class ArithmeticExpressionVisitor
         if (!(ctx.multiplicationOperand()?.length > 0) && !(ctx.divisionOperand()?.length > 0)) {
             return ctx.arithmeticAtom().accept(this);
         }
+
+        console.log('!')
 
         let operands = [MultiplicationOperand.Multiply(ctx.arithmeticAtom().accept(this))];
 
@@ -60,7 +66,7 @@ export class ArithmeticExpressionVisitor
             return new NumberExpression(+number.text);
         }
 
-        return (this as QuokkaVisitor<ArithmeticExpression>).visitArithmeticAtom(ctx);
+        return this.visitChildren(ctx);
     }
 
     public visitVariantValueExpression(ctx: Parser.VariantValueExpressionContext): ArithmeticExpression {

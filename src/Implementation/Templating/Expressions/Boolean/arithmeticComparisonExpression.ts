@@ -33,9 +33,9 @@ export class ArithmeticComparisonExpression extends BooleanExpression {
             case ComparisonOperation.NotEquals:
                 return Math.abs(leftValue - rightValue) > this.epsilon;
             case ComparisonOperation.LessThan:
-                return Math.abs(rightValue - leftValue) > this.epsilon;
+                return (rightValue - leftValue) > this.epsilon;
             case ComparisonOperation.GreaterThan:
-                return Math.abs(leftValue - rightValue) > this.epsilon;
+                return (leftValue - rightValue) > this.epsilon;
             case ComparisonOperation.LessThanOrEquals:
                 return ((rightValue - leftValue) > this.epsilon)
                     || (Math.abs(leftValue - rightValue) < this.epsilon);
