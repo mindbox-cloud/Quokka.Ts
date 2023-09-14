@@ -1,15 +1,16 @@
-import { ANTLRInputStream, CommonTokenStream, Parser } from "antlr4ts";
+import { ANTLRInputStream, CommonTokenStream } from "antlr4ts";
 import { QuokkaLex } from "./Generated/QuokkaLex";
 import * as Parsing from "./Generated/QuokkaParser";
-import { TemplateBlock } from "./Implementation/template-nodes";
-import { TemplateVisitor } from "./Implementation/visitors";
+
+import {TemplateBlockVisitor} from "./Implementation/Templating/Visitors/templateBlockVisitor";
+import {TemplateBlock} from "./Implementation/Templating/Blocks/templateBlock";
 
 export type FunctionRegistry = { [name: string]: Function };
 
 export class Template {
 
 	private root: TemplateBlock;
-	private functionRegistry: FunctionRegistry;
+	private readonly functionRegistry: FunctionRegistry;
 
 	public constructor(templateText: string, functionRegistry?: FunctionRegistry) {
 		this.functionRegistry = functionRegistry;
@@ -30,6 +31,6 @@ export class Template {
 		const parser = new Parsing.QuokkaParser(tokens);
 
 		const rootContext = parser.template();
-		return new TemplateVisitor().visit(rootContext);
+		return rootContext.accept(new TemplateBlockVisitor());
 	}
 }
